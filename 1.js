@@ -14,3 +14,7 @@ for( var i = 0;  i < ary.length; i++){
         console.log(ary[i]);
     }
 } */
+
+var a = 3,
+    b = 5,
+    c;

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">   
+      /* sort：排序
+         改变原数组
+         返回值：排序后的新数组
+      */  
+      //无参数
+      var arr = [1, 23, 4, 32, 2, 6];
+      console.log(arr.sort());
+      //有参数：升序
+      console.log(arr.sort(function(a, b){
+          return a - b;
+      }))
+      //有参数：倒序
+      console.log(arr.sort(function(a, b){
+          return b - a;
+      }))
+    </script>
+
+    <script>
+        /* 
+          indexOf([value], x)
+          [value]：要检测的项
+          x：从哪开始检索
+          返回值
+            + 如果存在，返回value在数组首次出现的索引值
+            + 如果不存在，返回-1
+        */
+       var arr = [1, 2, 3, 4, 2];
+       console.log(arr.indexOf(1));
+       console.log(arr.indexOf(6));
+       console.log(arr.indexOf(2, 2));
+
+       /* 
+         lastIndexOf([value], x):检测value在数组最后一次出现的索引值
+         x：检测的停止位置(索引值)
+       */
+       console.log(arr.lastIndexOf(2));
+       console.log(arr.lastIndexOf(2, 3));
+    </script>
+
+
+    <script>
+        /* 
+         includes([value])：检测数组是否包含该项
+        */
+       var arr = [1, 2, 3, 21, 23];
+       console.log(arr.includes(2));//=>true
+       console.log(arr.includes(33));//=>false
+    </script>
+
+    <script>
+        /* forEach(item, index)  遍历数组中的每一项
+           item：代表数组中的每一项
+           index：代表数组中的索引
+        */
+        var arr = [1, 2, 3, 4, 5];
+        arr.forEach(function(item, index){
+            console.log("item：" + item + '--index：'+ index);
+        })
+    </script>
+
+    <script>
+        var arr = [2, 3, 5, 12, 32, 66];
+        console.log(arr.map(function(item, index){
+            return item+1;
+        }));
+    </script>
+</body>
+</html>

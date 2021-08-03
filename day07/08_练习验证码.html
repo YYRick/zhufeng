@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day07 | 练习验证码案例</title>
+    <style>
+        #getCode,
+        .code {
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .code {
+            border: 1px solid red;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="getCode">获取验证码</button>
+    <div class="code" id="code"></div>
+    <script type="text/javascript">
+    /* 
+     验证码内容：数字+大小写字母
+     验证码长度：四位数
+     打开页面的时候，有一个默认的四位数验证码
+     当我点击获取验证码按钮的时候，让验证码发生改变
+    */
+    var btn = document.getElementById("getCode");
+    var code = document.getElementById("code");
+    // 验证码的内容
+    var str = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";//0-61(对应的索引)
+   /* 
+    * getCode：实现获取随机数
+    *   @params
+    *     str  [string]  指定随机数的范围
+    *     n   [number]   组成随机数的长度
+    *   @return
+    *     res  [string]  最终获取的随机数
+    * by yyrick on 2021/8/03
+    */
+    function getCode(str, n){
+        var res = '',
+           index = 0,
+            item = 0; 
+        for(var i = 0; i < n; i++){
+            index = Math.round(Math.random()*61);
+            item = str[index];
+            res += item;
+        }
+        return res;
+    }
+
+    code.innerText = getCode(str, 4);
+
+    btn.onclick = function(){
+        code.innerText = getCode(str, 4);
+    }
+    </script>
+</body>
+</html>

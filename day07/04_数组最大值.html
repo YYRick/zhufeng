@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习 | 数组最大值</title>
+</head>
+<body>
+    <script>
+        var arr = [23, 34, 12, 54, 64, 66, 22];
+        function myMax(arr){
+           var max = arr[0]; 
+           for(var i = 1; i < arr.length; i++){
+              if(arr[i] > max){
+                  max = arr[i];
+              }
+           }
+           return max;
+        }
+        console.log(myMax(arr));
+    </script>
+
+    <script>
+        var arr = [23, 34, 12, 54, 64, 66, 22];
+        function myMax(arr){
+           var ary = arguments[0]; 
+           var max = ary[0];
+           for(var i = 1; i < ary.length; i++){
+              if( ary[i] > max){
+                  max = ary[i];
+              }
+           }
+           return max;
+        }
+        console.log(myMax(arr));
+    </script>
+</body>
+</html>

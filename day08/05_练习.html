@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main" id="main">
+        <input type="text" name="he">
+    </div>
+    <input type="text" name="he">
+</body>
+</html>
+<script>
+//var res=document.getElementsByName("he");//[input, input]
+//var omain=document.getElementById("main");
+
+//  把list中你想要的元素捡出来
+//  哪些是想要的呢？属性名是name 属性值"he"
+//  box.getAttribute("name")=="he";
+
+    function myName({
+        context, 
+        attr, 
+        value
+    }){
+    context = context || document;
+    var ary=[];
+    var list=context.getElementsByTagName("*");// 通过这一步可以拿到页面中所有的元素
+    for(var i = 0; i < list.length; i++){
+        if(list[i].getAttribute(attr) == value){
+            ary.push(list[i]);
+        }
+    }
+    return ary;
+    }
+
+    var res = myName({
+        attr: 'name', 
+        conetext: document, 
+        value: "he"
+        });
+    console.log(res);
+    console.log(res[0],res[1]);
+</script>

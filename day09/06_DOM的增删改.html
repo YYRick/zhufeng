@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 09 | DOM的增删改</title>
+</head>
+<body>
+    <script>
+        //1.首先创建一个元素节点h1
+        var s1 = document.createElement('h1');
+        //2.创建一个文本节点
+        var text = document.createTextNode('你们真棒！');
+        //3.把创建的文本节点加入到元素节点h1上
+        s1.appendChild(text);
+        //4.把新创建的元素节点加入到HMTL文档中
+        document.body.appendChild(s1);
+    </script>
+</body>
+</html>

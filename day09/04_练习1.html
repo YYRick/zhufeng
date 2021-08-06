@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day09 | 练习1</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+   <span id="span1">1</span>
+   <ul id="main">
+       <!-- 我是注释 -->
+       <li>选择珠峰的，都是明智的！</li>
+       <li>选择珠峰的，都是明智的！</li>
+       <li>选择珠峰的，都是明智的！</li>
+       <li>选择珠峰的，都是明智的！</li>
+   </ul>
+   <span id="span2">2</span>
+   <script type="text/javascript">
+    function chlidren(ele){
+        var nodelists = ele.childNodes;
+        var res = [];
+        for(var i = 0 ; i < nodelists.length; i++){
+            if(nodelists[i].nodeType == 1){
+                 res.push(nodelists[i]);
+            }
+        }
+        return res;
+    }
+ 
+    var omain = document.getElementById('main');
+    for(var i = 0; i < chlidren(omain).length; i++){
+        console.log(chlidren(omain)[i]);
+    }
+ </script>
+</body>
+</html>

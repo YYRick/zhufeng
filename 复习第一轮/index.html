@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+          1、有一个函数，功能是求和，但是不知道在调用的时候传递了多少个参数，
+          有可能传递的有字符串，如果字符串能转为数字，就转后再加，
+          如果转后是NaN，那就不加，现在请实现下这个功能
+        */
+
+        function test(){
+            var num = 0;
+            for(var i = 0 ; i < arguments.length; i++){
+                if(Number(arguments[i])){
+                    var t1 = Number(arguments[i]);
+                    num += t1;
+                } 
+            }
+            return num;
+        }
+
+        console.log(test(1, 2, '3', 'ccc'));
+    </script>
+
+
+    <script>
+        /* 
+          2、求1-100中能同时被2整除又能被3整除的所有数之和
+           （for循环也可以，递归也可以，实现的方法不限制）（15）
+        */
+        var num = 0;
+        for(var i = 1 ; i <= 100 ; i++){
+            if(i%6 == 0){
+                num += i;
+            }
+        }
+
+        console.log(num);
+    </script>
+</body>
+</html>

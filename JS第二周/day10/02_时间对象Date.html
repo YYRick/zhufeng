@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var time = new Date();
+        console.log(typeof time);
+
+        //
+        var J_time = time.getTime();
+        //距离1970年的毫秒数
+        console.log(J_time);
+
+        /* 
+          获取年月日
+        */
+        console.log(time.getFullYear());//=>年
+        console.log(time.getMonth());//=>月有问题 [0-11]
+        console.log(time.getDate());//=>第几天
+        console.log(time.getDay());//=>星期几  也有问题  [0,1-6]
+    </script>
+</body>
+</html>

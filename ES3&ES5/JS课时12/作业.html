@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 
+          写个插件，实现加减乘除
+        */
+        ;(function(){
+            var Compute = function(){};
+
+            Compute.prototype = {
+               plus: function(a ,b){
+                   return a + b;
+               },
+               minus: function(a ,b){
+                   return a - b;
+               },
+               mul: function(a ,b){
+                   return a * b;
+               },
+               div: function(a ,b){
+                   return a / b;
+               }
+            }
+
+            window.Compute = Compute;
+        })();
+
+        var compute = new Compute();
+        console.log(compute.plus(1 ,2));
+        console.log(compute.minus(1 ,2));
+        console.log(compute.mul(1 ,2));
+        console.log(compute.div(1 ,2));
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时11 | 原型链</title>
+</head>
+<body>
+    <script type="text/javascript">
+       Professor.prototype.tSkill = 'JAVA';
+       function Professor(){}
+       var professor = new Professor();
+
+       Teacher.prototype = professor;
+       function Teacher(){
+           this.mSkill = 'JS/JQ';
+       }
+       var teacher = new Teacher();
+
+       Student.prototype = teacher;
+       function Student(){
+           this.pSkill = 'HTML/CSS';
+       }
+
+       var student = new Student();
+
+       console.log(student);
+    </script>
+</body>
+</html>

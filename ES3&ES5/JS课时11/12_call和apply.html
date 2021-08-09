@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //call：更改this指向
+        function Car(brand, color){
+            this.brand = brad;
+            this.color = color;
+        }
+
+        var newCar = {};
+        /* 
+          this指向由window指向了newCar
+        */
+        Car.call(newCar, 'Benz', 'red');
+        console.log(newCar);
+
+        /* 
+          apply和call的唯一区别,参数是数组
+        */
+    </script>
+</body>
+</html>

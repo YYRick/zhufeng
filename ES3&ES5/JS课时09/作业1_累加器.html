@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时09</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 闭包实现 */
+        function test(){
+            var num = 0;
+            function add(){
+                console.log(++num);
+            }
+            return add;
+        }
+
+        var add = test();
+        add();
+        add();
+        add();
+        add();
+        add();
+        add();
+    </script>
+</body>
+</html>

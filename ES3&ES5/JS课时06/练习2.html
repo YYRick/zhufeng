@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时06 | 面包管理</title>
+</head>
+<body>
+    <script type="text/javascript">
+       function breadMgr(num){
+           var breadNum = arguments[0] || 10;
+
+           function supply(){
+               breadNum += 10;
+               console.log(breadNum);
+           }
+
+           function sale(){
+               breadNum--;
+               console.log(breadNum);
+           }
+
+           return [supply, sale];
+       }
+
+       var breadMgr = breadMgr(50);
+
+       breadMgr[0]();
+       breadMgr[1]();
+       breadMgr[1]();
+       breadMgr[1]();
+    </script>
+</body>
+</html>

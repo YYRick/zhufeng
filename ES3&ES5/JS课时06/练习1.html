@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时06</title>
+</head>
+<body>
+    <script type="text/javascript">
+       function test1(){
+          var n = 100;
+          function add(){
+              n++;
+              console.log(n);
+          }
+
+          function reduce(){
+              n--;
+              console.log(n);
+          }
+          return [add,reduce];
+       }
+       var arr = test();
+       arr[0]();
+       arr[1]();
+    </script>
+</body>
+</html>

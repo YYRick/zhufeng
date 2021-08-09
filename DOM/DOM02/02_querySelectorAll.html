@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>123</div>
+    <div>123</div>
+    <div>123</div>
+    <script>
+        /* 
+          1.性能差
+          2.不实时
+        */
+        var divs = document.querySelectorAll('div');
+        console.log(divs);
+        divs[0].remove();
+        console.log(divs);
+    </script>
+</body>
+</html>

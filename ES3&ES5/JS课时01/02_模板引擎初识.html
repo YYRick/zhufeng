@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | 课时1</title>
+</head>
+<body>
+<!-- 
+    利用type属性不让js代码执行，
+    然后通过模板引擎的方式, 
+    获取中间的内容替换成具体数据
+ -->
+<table id="table"></table>
+<script type="text/tpl" id="tpl">
+  <tr>
+    <td>{{ id }}</td>
+    <td> {{ name }} </td>
+    <td>{{ age }}</td>
+  </tr>
+</script> 
+<script>
+  var data = [
+    {
+      id: "2021001",
+      name: '李白',
+      age: 21
+    },
+    {
+      id: "2021002",
+      name: '杜甫',
+      age: 22
+    },
+    {
+      id: "2021003",
+      name: '白居易',
+      age: 20
+    }
+  ];
+
+  var temp = document.querySelector("#tpl").innerHTML,
+      reg = /\{\{(.*?)\}\}/igm;
+  var tempList = data.map((item) => {
+    return temp.replace(reg, function (node, key){
+      return item[key.trim()]
+    });
+  });
+  var table = document.getElementById("table");
+  table.innerHTML = tempList.join("");
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时09</title>
+</head>
+<body>
+    <script type="text/javascript">
+       //数组截断方法
+       var arr = [1, 2, 3, 4, 5];
+       console.log(arr);//=>[1, 2, 3, 4, 5]
+       arr.length = 3;
+       console.log(arr);//=>[1, 2, 3]
+
+       //字符串能使用这个截断吗?
+       var str = 'abc';
+       str.length = 1;//这里包装类变成new String(str).length，但是没地方保存，于是delete
+       /* 
+         这里被包装类变成了new String(str).length
+       */
+       console.log(str.length);//=>3
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时09</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 
+          this指向
+            1.没有new实例化时，指向window
+            2.new实例化构造函数，指向实例化的对象实例
+        */
+        function Car(){
+            this.color = 'red';
+        }
+
+        var car = new Car();
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时11 | 作业</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 
+          因为英文字符为1字节，中文字符为2字节
+        */
+        function getBytes(str){
+            var bytes = str.length;
+
+            for(var i = 0; i < str.length; i++){
+                var pos = str.charCodeAt(i);
+                /* 通过判断pos是否大于255，就可以判断是否为中文
+                 */
+                if(pos > 255){
+                    bytes++;
+                }
+            }
+            return bytes;
+        }
+        console.log(getBytes('你好，世界！Hello World!'));
+    </script>
+</body>
+</html>

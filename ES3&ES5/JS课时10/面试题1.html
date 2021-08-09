@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时</title>
+</head>
+<body>
+    <script type="text/javascript">
+        Car.prototype.name = 'Benz';
+        function Car(){};
+
+        var car = new Car();
+
+        Car.prototype = {
+            name: 'Mazda'
+        }
+
+        console.log(car.name);//=>'Benz'
+        
+        function Car(){
+            var _this = {
+                __proto__: Car.prototype = {
+                    name: 'Benz'
+                }
+            }
+        }
+    </script>
+</body>
+</html>

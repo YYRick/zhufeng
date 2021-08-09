@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+       /* 
+         定义一个函数，
+         从wp接受一个饮料的名称，
+         函数返回对应的价格
+       */
+       var wp = window.prompt("请输入饮料的名称");
+       function test(wp){
+           switch(wp){
+               case '可乐':
+                   console.log(3);
+                   break;
+               case '雪碧':
+                   console.log(2.5);
+                   break;
+               case '怡宝':
+                   console.log(2);
+                   break;
+               default:
+                   console.log('对不起，您输入的饮料错误!');
+           }
+       }
+       test(wp);
+    </script>
+</body>
+</html>

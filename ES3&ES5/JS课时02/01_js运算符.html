@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时02</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 
+          js中常用的调试工具
+          浏览器查看快捷键：fn+f12
+         */
+        console.log("哈哈哈");
+
+        /* 
+          js中的常见的运算符
+            + - * / % ()
+         */
+         var a = 1,
+             b = 2,
+             d = 3;
+         var c = (a + b) * d;
+         console.log(c);
+
+
+         //+
+         //数学运算
+         var a = 1,
+             b = 2;
+         console.log(a+b);//=>3
+
+         //字符串拼接
+         var c = 1 + 'str';//=>1str
+        console.log(c);
+        c = 'str' + 'str';//=>strstr
+        console.log(c);
+        c = 'str' + null;//=>strnull
+        console.log(c);
+        c = 'str' + undefined;//=>strundefined
+        console.log(c);
+        c = 'str' + true;//=>strtrue
+        console.log(c);
+ 
+        // / 除法
+        c = 0 / 0;//=>NaN
+        c = 1 / 0;//=>infinty
+        c = -1 / 0;//=>-infinty
+
+        // % 取模 取余
+        c = 4 % 6;//=>4
+
+        //交换值的问题
+
+
+        //++、--
+        var a = 1;
+        console.log(a++)//=>1  
+        //先运算再自加，所以打印的是1
+
+        var a = 1;
+        console.loh(++a) //=>2
+        //先自加后运算，所以打印的是2
+
+        var a = 5,
+            b;
+        b = a++ + 1;  //执行完这句后,a再++
+        console.log(b,a); //=>6,6 
+        
+        b = ++a + 1;  
+        console.log(b,a); //=>7,6
+
+        b = a-- + --a //8,3  
+        //此处可理解为-- 优先级大于+ 所以先--a  再去相加;   a减1后相当于4+4=8  执行完后再减1;   
+        b = a-- * --a //16,3   
+        b = a-- * --a //0,3
+        // --的优先级也大于 * / %
+
+
+        /* 
+          比较运算符
+            > < >= <= == === != !==
+        */
+
+
+        /* 
+          逻辑运算符
+        */
+
+        /* && */
+        var a = 1 && 2 && undefined && 10;
+        console.log(a);//=>undefined
+
+        /* || */
+        var b = 0 || null || 1 || 0;
+        console.log(b);;//=>null
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时10 | window和return</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function test(){
+            var a = 1;
+            function plus1(){
+                a++;
+                console.log(a);
+            }
+
+            return plus1;
+        }
+        var plus = test();
+        plus();
+        plus();
+        plus();
+    </script>
+    <script type="text/javascript">
+        /* 
+          全局对象window实现闭包
+        */
+        function test(){
+            var a = 1;
+            function add(){
+               a++;
+               console.log(a);
+            }
+
+            window.add = add;
+        }
+
+        test();
+
+        add();
+        add();
+        add();
+    </script>
+</body>
+</html>

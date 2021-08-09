@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | 课时1</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 原始值  存储在栈中 */
+         var a = 5,
+             b = a;
+         document.write(b);//=>5
+         
+         /* 原始值 存储在堆中 */
+         var arr1 = [1,2,3,4],
+             arr2 = arr1;
+         document.write(arr2);
+         
+
+         a = 7;
+         document.write(b);//=>5
+
+         arr1.push(5);
+         document.write(arr2);
+
+         arr1 = [1,3,4];
+         document.write(arr2);
+  
+    </script>
+</body>
+</html>

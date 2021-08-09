@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时09</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var name = 'languiji';
+        name += 10;//=>'languili10'
+
+        var type = typeof(name);//=>'string'
+
+        if(type.length === 6){//=>true
+            type.text = 'string';
+            //=>new String(type).text = 'string';
+            //没有地方保存，delete 删除
+        }
+
+        console.log(type.text);//=>undefined
+    </script>
+    <script type="text/javascript">
+        /* 修改 让type.text输出'string' */
+        var name = 'languiji';
+        name += 10;
+
+        var type = new String(typeof(name));
+
+        if(type.length === 6){
+            type.text = 'string';
+        }
+
+        console.log(type.text);
+    </script>
+</body>
+</html>

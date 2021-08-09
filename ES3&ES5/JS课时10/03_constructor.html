@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时10 | </title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Handphone(color, brand, system){
+            this.color = color;
+            this.brand = brand;
+            this.system = system;
+        }
+        
+        Handphone.prototype = {
+            rom: '64G',
+            ram: '6G',
+            screen: '18:9',
+            call: function(){
+                console.log('I am calling somebody');
+            }
+        }
+        /* console.log(Handphone.prototype); */
+        /* 
+         constructor构造器指向的是这个构造函数本身
+        */
+       var hp1 = new Handphone('black', 'iPhone', 'IOS');
+       console.log(hp1.constructor);
+
+       function Telephone(){};
+
+       //更改构造器的指向
+       Handphone.prototype = {
+           constructor: Telephone
+       }
+       console.log(Handphone.prototype);
+
+       
+    </script>
+</body>
+</html>

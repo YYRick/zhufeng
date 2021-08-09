@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS_DOM(课时05) | 日期对象</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 
+         日期对象是一个构造函数
+        */
+        //实例化日期对象
+        var date = new Date();
+        console.log(date);
+        console.log(Date());
+        /* 
+          Date日期对象是继承了Object对象中的方法和属性
+          所以能使用toString方法
+         */
+
+
+         //getDate()：返回当前是一个月的第几天  返回几号
+         
+
+         //getDay()：返回当前是一周中的星期几  0-6
+         //因为外国人认为星期天是一周中的第一天，所以0是星期天
+
+         //重写getDay方法
+         Date.prototype.getWeekDay = function(lang){
+             var day = this.getDay();
+
+             switch(day){
+                 case 0:
+                   return lang === 'chs' ? '星期天' : 'Sunday';
+                   break;
+                 case 1:
+                   return lang === 'chs' ? '星期一' : 'Monday';
+                   break;
+                 case 2:
+                   return lang === 'chs' ? '星期二' : 'Tuesday';
+                   break;
+                 case 3:
+                   return lang === 'chs' ? '星期三' : 'Wednesday';
+                   break;
+                 case 4:
+                   return lang === 'chs' ? '星期四' : 'Thursday';
+                   break;
+                 case 5:
+                   return lang === 'chs' ? '星期五' : 'Firday';
+                   break;
+                 case 6:
+                   return lang === 'chs' ? '星期六' : 'Saturday';
+                   break;
+             }
+         }
+
+
+         //getMonth  返回是当前的第几个月  0-11  记住+1才能显示真正的月份
+
+
+         //getYear()/getFullYear()
+
+
+         //gerHours()/getMinutes()/getSeconds()
+         
+          /* 
+            如果需要实时更新  每次都要new Date()
+          */
+    </script>
+</body>
+</html>

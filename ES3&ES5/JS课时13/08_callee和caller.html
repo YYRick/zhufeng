@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时13 | callee和caller</title>
+</head>
+<body>
+    <script type="text/javascript">
+       function test(a, b, c){
+           /* 
+             callee：返回arguments所对应的函数
+           */
+           console.log(arguments.callee.length);
+           //等价于arguments.callee.length
+           console.log(test.length);
+       }
+
+       test();
+    </script>
+
+    <script type="text/javascript">
+       /* 立即执行函数递归调用 */
+       var sum = (function(n){
+          if(n <= 1){
+              return 1;
+          }
+          //因为立即执行函数无法找到该函数，可以通过arguments.callee找到
+          return n + arguments.callee(n - 1);
+       })(10);
+
+       console.log(sum);
+    </script>
+
+    <script type="text/javascript">
+       //caller：返回当前被调用的函数是由谁调用的
+       function test1(){
+           test2();
+       }
+
+       function test2(){
+           console.log(test2.caller);
+       }
+
+       test1();
+    </script>
+</body>
+</html>

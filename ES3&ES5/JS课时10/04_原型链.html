@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时10 | __proto__</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Car(){
+           /* 
+            构造函数执行生成AO,创造this并赋值为空对象
+           */
+           var _this = {
+               /* 
+                __proto__是存储在this上的，也就是在对象实例上的
+                __proto__存储的就是实例化对象的原型
+               */
+               __proto__ : Car.prototype
+           }
+        }
+        
+        Car.prototype.name = 'Benz';
+        
+        /* 
+        __proto__是实例化对象以后生成的
+        */
+        var car = new Car();
+        console.log(car);
+    </script>
+</body>
+</html>

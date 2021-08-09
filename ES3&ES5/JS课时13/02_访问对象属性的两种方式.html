@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时13</title>
+</head>
+<body>
+    <script type="text/javascript">
+       var myLang = {
+           No1: 'HTML',
+           No2: 'CSS',
+           No3: 'JavaScript',
+           myStudyingLang: function(num){
+               console.log(this['No' + num]);
+           }
+       }
+
+       myLang.myStudyingLang(2);
+    </script>
+</body>
+</html>

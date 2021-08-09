@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时15 | 数组基础</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /* 
+      1.声明数组的三种方式
+    */
+       //数组字面量
+       var arr1 = [];
+       console.log(arr1);
+       /* 
+         通过系统内置的Array()构造函数声明数组
+       */
+       var arr2 = new Array();
+       console.log(arr2);
+       
+       //不使用
+       var arr3 = Array();
+       console.log(arr3);
+
+       /* 
+          查看这三者的对象原型
+        */
+       console.log(arr1.__proto__);
+       console.log(arr2.__proto__);
+       console.log(arr3.__proto__);
+       /*
+          所有数组都继承于Array.prototype
+       */
+       console.log(Array.prototype);
+
+       //对象字面量
+       var obj1 = {};
+       var obj2 = new Object();
+       var obj3 = Object();
+       console.log(obj1, obj2, obj3);
+       /* 这三种创建对象的方式都继承的原型是Object.prototype */
+
+       //模拟数组
+       var arr = [1, 2, 3, 4, 5, 6];
+       var obj = {
+           0: 1,
+           1: 2,
+           2: 3,
+           3: 4,
+           4: 5,
+           5: 6
+       }
+       /* 
+         数组也是对象
+         其键名就是索引值(数组下标)
+       */
+       console.log(arr[2],obj[2]);
+    </script>
+</body>
+</html>

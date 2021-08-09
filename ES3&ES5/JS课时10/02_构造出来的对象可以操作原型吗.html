@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时10</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Test(){
+
+        }
+
+        Test.prototype.name = 'prototype';
+        var test = new Test();
+        //test.num = 1;
+        // console.log(Test.prototype, test);
+        delete test.name;
+        console.log(Test.prototype);
+    </script>
+</body>
+</html>

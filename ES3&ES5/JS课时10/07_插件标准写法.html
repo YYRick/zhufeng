@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时10 | 插件标准写法</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //使用立即执行函数包裹函数，防止函数污染
+        (function(){
+            function Test(){}
+
+            window.Test = Test;
+        })();
+    </script>
+</body>
+</html>

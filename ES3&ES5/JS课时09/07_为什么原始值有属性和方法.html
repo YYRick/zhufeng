@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时09</title>
+</head>
+<body>
+    <script type="text/javascript">
+      /* 
+         通过包装类变成了new Number(a).len
+         但是没有存储这个的变量，于是delete->undefined
+      */
+       var a = 123;
+       a.len = 3;
+       console.log(a.len);//undefined
+       
+
+       /* 
+         new String(str).length  ->3
+       */
+       var str = 'abc';
+       console.log(str.length);//=>3
+    </script>
+</body>
+</html>

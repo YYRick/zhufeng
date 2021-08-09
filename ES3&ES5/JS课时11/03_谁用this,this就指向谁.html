@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Car(){
+            this.brand = 'Benz';
+        }
+
+        Car.prototype = {
+            brand: 'Mazda',
+            intro: function(){
+                console.log('我是' + this.brand + '车');
+            }
+        }
+
+        var car = new Car();
+        car.intro();
+        /* prototype也是一个对象 */
+        Car.prototype.intro();
+        console.log(Car.prototype.brand);
+    </script>
+</body>
+</html>

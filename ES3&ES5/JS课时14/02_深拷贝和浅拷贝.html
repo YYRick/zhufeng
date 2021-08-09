@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 
+          浅拷贝
+        */
+        //对象字面量其实也是通过new Object()创造出来的
+        var p1 = {};
+
+        var person1 = {
+            name: '张三',
+            age: 18,
+            sex: 'male',
+            height: 180,
+            weight: 140,
+            son:{
+                first: 'Jenney',
+                second: 'Lucy',
+                Third: 'Jone'
+            }
+        }
+
+        var person2 = {};
+
+        for(var key in person1){
+            person2[key] = person1[key];
+        }
+        person2.name = '李四';
+        person2.son.first = 'xxx';
+        console.log(person1, person2);
+    </script>
+</body>
+</html>

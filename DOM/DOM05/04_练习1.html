@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        已经过了<span>0</span>秒
+    </h1>
+    <script type="text/javascript">
+       //1秒 = 1000毫秒
+       var oH1 = document.getElementsByTagName('h1')[0],
+           oSpan = oH1.getElementsByTagName('span')[0],
+           sec = 0;
+           
+       setInterval(function(){
+           oSpan.innerText = ++sec;
+       }, 1000);
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时09</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Car(opt){
+            this.color = opt.color;
+            this.brand = opt.brand;
+            this.drive = function(){
+                console.log('I am running')
+            }
+        }
+
+        var car = new Car({
+            color: 'red',
+            brand: 'Mazda'
+        })
+        console.log(car.color);
+        console.log(car.brand);
+        car.drive();
+    </script>
+</body>
+</html>

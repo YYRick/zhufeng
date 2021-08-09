@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+          每一个计时器都有一个唯一的标识(是其返回值)
+          通过这个唯一的标识可以清除对应的计时器
+        */
+        var timer = setInterval(function(){}, 1000),
+            timer1 = setInterval(function(){}, 1000),
+            timer2 = setInterval(function(){}, 1000);
+        console.log(timer, timer1, timer2);
+
+        var a = 0;
+        var timer3 = setInterval(function(){
+            a++;
+            console.log(a);
+            if(a > 5){
+                clearInterval(timer3);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

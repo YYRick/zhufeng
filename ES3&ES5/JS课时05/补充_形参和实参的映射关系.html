@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+          如果形参被赋值为undefined，a就去找实参上的默认值；
+          如果实参赋值为undefined， 就去找形参上的默认值；
+        */
+        function test(a = 1, b){
+           console.log(a, b);
+        }
+        test(undefined,b = 1);
+    </script>
+</body>
+</html>

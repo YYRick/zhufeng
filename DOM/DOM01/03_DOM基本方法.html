@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS_DOM | DOM基本方法</title>
+</head>
+<body>
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <script>
+       //获取id名为box1的元素
+       var box1 = document.getElementById('box1');
+       console.log(box1);
+       //获取标签名为div的一组元素(返回值是一个类数组)
+       var boxes = document.getElementsByTagName('div');
+       console.log(boxes);
+       //获取类名为box的一组元素
+       var C_boxs = document.getElementsByClassName('box');
+       console.log(C_boxs);
+    </script>
+</body>
+</html>

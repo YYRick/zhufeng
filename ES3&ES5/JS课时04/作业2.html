@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+       /* 
+         定义一个函数，从wp接受第一个数，
+         接收一个运算符号（+ - * / %），
+         接受第二个数，利用这个函数做运算，
+         并返回运算结果
+       */
+       var wp = [3];
+       wp[0] = parseFloat(window.prompt('请输入第一个数'));
+       wp[1] = window.prompt('请输入一个运算符号');
+       wp[2] = parseFloat(window.prompt('请输入第二个数'));
+       function test(wp){
+           if(wp[1] === '+'){
+               console.log(wp[0]+wp[2]);
+           }else if(wp[1] === '-'){
+               console.log(wp[0]-wp[2]);
+           }else if(wp[1] === '*'){
+               console.log(wp[0]*wp[2]);
+           }else if(wp[1] === '/'){
+               console.log(wp[0]/wp[2]);
+           }else if(wp[1] === '%'){
+               console.log(wp[0]%wp[2]);
+           }else{
+               console.log("对不起，您的输入有问题!")
+           }
+       }
+
+       test(wp);
+    </script>
+</body>
+</html>

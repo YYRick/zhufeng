@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时13 | this指向</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* 
+         this的指向
+          + 1.全局的this指向window
+          + 2.函数内部的this也默认指向window
+        */
+        function test(b){
+            this.d = 3;
+            var a = 1;
+            function c(){};
+        }
+
+        test(123);
+
+        console.log(d);
+    </script>
+    <script type="text/javascript">
+        function Test(){
+            name: '李白'
+        }
+
+        var test = new Test();
+    </script>
+</body>
+</html>

@@ -56,7 +56,7 @@ var a = function (){
 
 ;(function (){
     console.log('Function Expression');
-})();
+})()
 
 (function (){
     console.log('Function Expression');
@@ -64,7 +64,7 @@ var a = function (){
 
 (function (){
     console.log('Function Expression');
-})();
+})()
 
 /* 
  1.可以创建一个与外界没有任何关联的作用域(独立作用域)

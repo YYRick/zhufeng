@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS课时18 | 错误信息</title>
+</head>
+<body>
+    <script>
+        /* 
+         JS错误信息类型
+        */
+       /* 1.SyntaxError 语法错误 */
+       //变量名不规范
+       /* var 1 = 1; */
+       /* var 1ab = 1; */
+       /* function 1test(){}; */
+
+       //关键字不可赋值
+       /* new = 1; */
+       /* function = 1; */
+
+       //基本的语法错误
+       /* var a = 5； */
+    </script>
+
+    <script>
+        /* 2. ReferenceError  引用错误 */
+        //1. 变量或者函数未声明
+        /* test(); */
+        /* console.log(a); */
+
+        //2. 给无法赋值的对象赋值
+        //赋值左侧的1是无效的
+        /* var a = 1 = 2; */
+;
+        /* var a = 1;
+        console.log(a) = 1; */
+    </script>
+
+    <script>
+        /* RangeError  范围错误 */
+        //设置数组的长度为负数
+        /* var arr = [1, 2, 3, 4, 5];
+        arr.length = -1; */
+
+        //对象方法参数超出可行范围
+        /* var num = new Number(66.66);
+        console.log(num.toFixed(-1)); */
+    </script>
+
+
+    <script>
+        /* 类型错误 TypeError */
+        //调用不存在的方法
+        /* 123(); */
+        /* var obj = {}; */
+        /* 不报错，输出undefined，
+        因为系统把obj.sya看成一个obj对象的属性，
+        只是没有赋值而已 */
+        /* console.log(obj.say); */
+        /* 同样是把obj.say看做是obj的属性，
+        属性是不能执行的，所以是个类型错误 */
+        /* console.log(obj.say()); */
+        
+        //实例化原始值
+        var a = new 123;
+        var b = new 'string';
+        
+    </script>
+</body>
+</html>

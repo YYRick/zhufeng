@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+          VO
+           a=12 b=13 c=14 -> 20 fn(a)
+          AO
+           a=12 ->20 b=undefined -> 20
+        */ 
+        /* var a=12,b=13,c=14;
+        function fn(a){
+            console.log(a,b,c); //12,undefined,14
+            var b=c=a=20;
+            console.log(a,b,c); //20,20,20
+        }
+        fn(a);
+        console.log(a,b,c);//12,13,20 */
+
+        /* 
+         VO
+          ary=[12,13] -> [100,13]
+         AO
+          ary=[100] -> [0]
+        */
+        /* var ary=[12,13];
+        function fn(ary){
+            console.log(ary);//[12,13]
+            ary[0]=100;
+            ary=[100];
+            ary[0]=0;
+            console.log(ary);//[0]
+        }
+        fn(ary);
+        console.log(ary); //[100,13] */
+    </script>
+</body>
+</html>

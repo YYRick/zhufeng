@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+         函数的作用域在创建时就已经决定了
+         和在哪执行无关
+        */
+        var a=2;
+        /* 
+         AO(fn)
+          <EC(fn), EC(G)>
+        */
+        function fn(){
+            console.log(a);
+        }
+        fn();//2
+        /* 
+         AO(sum)
+          <EC(sum), EC(G)>
+        */
+        function sum(){
+            var a=3;
+            fn();
+        }
+        sum();//2
+    </script>
+</body>
+</html>

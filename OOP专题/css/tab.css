@@ -1,0 +1,65 @@
+.wrap{
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+}
+
+.tab{
+    height: 50px;
+}
+
+.tab .item{
+    float: left;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+}
+
+.tab .item.current{
+    background-color: #000;
+    color: #fff;
+}
+
+.page{
+    position: relative;
+    height: 450px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.page .page-wrap{
+    height: 100%;
+}
+
+.page .page-wrap .item{
+    height: 100%;
+    font-size: 100px;
+    text-align: center;
+    line-height: 450px;
+}
+
+
+.page .page-wrap.fade .item{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.page .page-wrap.fade .item.active{
+    display: block;
+}
+
+.page .page-wrap.slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1500px;
+}
+
+.page .page-wrap.slide .item{
+    float: left;
+    width: 500px;
+}

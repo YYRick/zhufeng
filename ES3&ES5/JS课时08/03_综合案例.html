@@ -19,7 +19,9 @@
            },
            leave: function(name){
                var idx = this.students.indexOf(name);
+               //判断name是否存在students数组中
                if(idx !== -1){
+                   //删除该项
                    this.students.splice(idx, 1);
                }
                console.log(name + '早退');

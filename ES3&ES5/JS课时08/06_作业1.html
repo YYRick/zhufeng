@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+         写个构造函数：接收数字类型的参数，
+          参数数量不定，完成参数相加和相乘的功能
+        */
+        function Compute(){
+            var args = arguments,
+                res;
+            this.plus = function(){
+                res = 0;
+                loop('add', res, args);
+            }
+
+            this.times =function(){
+                res = 1;
+                loop('mul', res, args);
+            }
+        }
+
+        function loop(method, res, args){
+            //循环遍历
+            for(var i = 0; i < args.length; i++){
+                var item = args[i];
+                if(method === 'add'){
+                    res+=args[i];
+                }else if(method === 'mul'){
+                    res*=args[i];
+                }
+            }
+            console.log(res);
+        }
+
+        var compute = new Compute(1, 2, 4, 6, 8);
+        compute.plus();
+        compute.times();
+    </script>
+</body>
+</html>

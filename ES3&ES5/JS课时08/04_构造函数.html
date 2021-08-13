@@ -38,6 +38,15 @@
          只有实例化构造函数之后this才能生成，指向生成的对象实例
        */
        var teacher = new Teacher();
+       
+       /* 
+         构造出两个不同的实例化对象，
+         这两个对象互不影响
+       */
+       var teacher1 = new Teacher();
+       var teacher2 = new Teacher();
+       teacher1.name = '李四';
+       console.log(teacher1, teacher2);
     </script>
 </body>
 </html>

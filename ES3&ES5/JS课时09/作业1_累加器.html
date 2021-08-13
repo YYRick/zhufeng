@@ -10,11 +10,16 @@
         function test(){
             var num = 0;
             function add(){
+                /* 注意这里是++num,先加后使用
+                   而num++是先使用再加加
+                */
                 console.log(++num);
             }
+            //返回全局，形成闭包
             return add;
         }
-
+        
+        //接收返回出来的add函数
         var add = test();
         add();
         add();

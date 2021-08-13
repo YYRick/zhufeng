@@ -9,6 +9,10 @@
         function Car(){
            this.color = 'red';
            this.brand = 'Benz';
+           /* 
+             return 原始值不会更改返回的值，还是默认返回this
+             但是如果return引用值，那返回的就是这个引用值
+           */
            return {};
         }
         var car = new Car();

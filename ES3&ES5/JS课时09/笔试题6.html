@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时09</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function b(x, y, a){
+            a = 10;
+            console.log(arguments[2]);
+        }
+
+        b(1, 2, 3);//=> 10
+
+
+        function c(x, y, a){
+            arguments[2] = 33;
+            console.log(a);
+        }
+
+        c(1, 2, 3);//=> 33
+    </script>
+</body>
+</html>

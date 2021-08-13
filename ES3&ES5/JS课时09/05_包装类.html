@@ -12,10 +12,16 @@
        var a = 1;
        console.log(a);
        //Number:方法、内置的构造函数
-       var b = new Number(a);
-       
        /* 
-         三种内置的构造函数
+         实例化后的对象数字1
+       */
+       var b = new Number(a);
+       b.name = 'xxx';
+       console.log(b);
+       console.log(b+a);
+       console.log(b);
+       /* 
+         三种内置的构造函数  -> 包装类
          new Number
          new String
          new Boolean

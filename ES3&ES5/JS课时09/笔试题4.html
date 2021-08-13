@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMAScript | JS课时09</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var x = 1,
+            y = z = 0;
+        function add(n){
+            return n = n + 1;
+        }
+
+        y = add(x);//4
+
+        function add(n){
+            return n = n + 3;
+        }
+
+        z = add(x);//4
+
+        console.log(x, y, z);//1 4 4
+    </script>
+</body>
+</html>

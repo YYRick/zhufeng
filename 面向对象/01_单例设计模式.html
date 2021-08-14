@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象 | 单例设计模式</title>
+</head>
+<body>
+    <script>
+        //单例设计模式，这个对象obj也叫命名空间
+        var obj = {
+            name: 'yyrick',
+            age: 22
+        }
+
+        //高级单例设计模式
+        var utils = (function(){
+            var num = 3;
+            function banner(){
+                console.log('轮播图');
+            }
+            function serch(){
+                console.log('搜索');
+            }
+
+            return {
+                num:num,
+                banner:banner,
+                serch:serch
+            }
+        })();
+
+        console.log(utils);
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象 | 工厂设计模式</title>
+</head>
+<body>
+    <script>
+        //工厂设计模式：其实就是函数，能够实现批量生产
+        function person(name, age, job){
+            return{
+                name:name,
+                age:age,
+                job:job
+            }
+        }
+
+        var p1 = person('yyrick', 22, '前端开发工程师');
+        console.log(p1);
+    </script>
+</body>
+</html>

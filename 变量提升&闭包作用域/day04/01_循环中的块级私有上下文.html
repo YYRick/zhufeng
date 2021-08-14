@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [10, 20, 30];
+        /* 
+          这里的i和item不是全局变量
+          注意：执行3轮，形成四个块级上下文
+        */
+        for(let i = 0; i < arr.length; i++){
+            let item = arr[i];
+        }
+        /* console.log(i, item); */
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡 | 自定义属性</title>
+    <style>
+       .tabBox .tab  li.active{
+           color: red;
+       }
+
+       .tabBox .content div{
+           display: none;
+       }
+
+       .tabBox .content div.active{
+           display: block;
+       }
+    </style>
+</head>
+<body>
+    <div class="tabBox">
+        <ul class="tab">
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <div class="content">
+            <div class='active'>页面1</div>
+            <div>页面2</div>
+            <div>页面3</div>
+        </div>
+    </div>
+    <script>
+        //1.获取节点集合
+        var tabList = document.querySelectorAll('.tabBox .tab li'),
+            conList = document.querySelectorAll('.tabBox .content div');
+        var preIndex = 0;
+
+        for(var i = 0; i < tabList.length; i++){
+            var item = tabList[i];
+            item.myIndex = i;
+            item.onclick = function(){
+               var curIndex = this.myIndex;
+               if(curIndex === preIndex) return;
+               tabList[curIndex].className = conList[curIndex].className = 'active';
+               tabList[preIndex].className = conList[preIndex].className = '';
+               preIndex = curIndex;
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        .tabBox .tab li.active{
+            color: red;
+        }
+
+        .tabBox .content div{
+            display: none;
+        }
+
+        .tabBox .content div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabBox">
+        <ul class="tab">
+            <li class="active">读书</li>
+            <li>音乐</li>
+            <li>旅游</li>
+        </ul>
+        <div class="content">
+            <div class="active">页面1</div>
+            <div>页面2</div>
+            <div>页面3</div>
+        </div>
+    </div>
+    <!-- import js -->
+    <script>
+        /* 拿到的都是节点集合 */
+       var tabList = document.querySelectorAll('.tabBox .tab li'),
+           conList = document.querySelectorAll('.tabBox .content div')
+       //用来记录上一次选中的是谁
+       var pervIndex = 0;
+       //给每个li都做一个事件绑定
+       for(var i = 0; i < tabList.length; i++){
+           var item = tabList[i];
+           //通过自定义属性存储当前选中的项
+           item.myIndex = i;
+           //事件绑定
+           item.onclick = function(){
+              /* i不是当前点击的这一项的索引，而是循环后的结果3 [因为i%item都是全局变量] */
+              //this：当前操作的这个项
+              var curIndex = this.myIndex;
+              //4.如果当前操作这一项和上一项选中的相同项，则无需处理
+              if(curIndex === pervIndex) return;
+              //1.让当前操作的li/div有选中样式
+              tabList[curIndex].className = conList[curIndex].className = 'active';
+              //2.让上一次选中的li/div移除样式
+              tabList[pervIndex].className = conList[pervIndex].className = '';
+              //3.让当前操作的这一项变为下一次操作的上一项
+              pervIndex = curIndex;
+           };
+       }
+    </script>
+</body>
+</html>

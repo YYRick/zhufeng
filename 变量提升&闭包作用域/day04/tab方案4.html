@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡 | 事件委托</title>
+    <style>
+       .tabBox .tab  li.active{
+           color: red;
+       }
+
+       .tabBox .content div{
+           display: none;
+       }
+
+       .tabBox .content div.active{
+           display: block;
+       }
+    </style>
+</head>
+<body>
+    <div class="tabBox">
+        <ul class="tab">
+            <li index='0' class="active">选项1</li>
+            <li index='1'>选项2</li>
+            <li index='2'>选项3</li>
+        </ul>
+        <div class="content">
+            <div class='active'>页面1</div>
+            <div>页面2</div>
+            <div>页面3</div>
+        </div>
+    </div>
+    <script>
+        //1.获取节点集合
+        let tabBox = document.querySelector('.tabBox'),
+            tabList = tabBox.querySelectorAll('.tab li'),
+            conList = tabBox.querySelectorAll('.content div');
+        let prevIndex = 0;
+
+        /*不论点击哪一个li,盒子的点击事件行为都会触发，
+        对应方法执行,ev是事件对象，存储了当前操作的信息*/
+        tabBox.onclick = function(ev){
+            let target = ev.target;//当前点击的事件源
+            if(target.tagName === 'LI'){
+                //基于getAttribute获取自定义属性[它的索引]
+                //使用+号转成数字类型
+                let index = +target.getAttribute('index');
+                if(index === prevIndex) return;
+                tabList[index].className = conList[index].className = 'active';
+                tabList[prevIndex].className = conList[prevIndex].className = '';
+                prevIndex = index;
+            }
+        }
+
+    </script>
+</body>
+</html>

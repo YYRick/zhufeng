@@ -29,7 +29,7 @@ g = function () {return false;};
 console.log(f());
 console.log(g()); */
 
-f = function () {return true;};
+/* f = function () {return true;};
 g = function () {return false;};
 (function () {
     if ([] == ![]) {
@@ -38,4 +38,37 @@ g = function () {return false;};
     }
 })();
 console.log(f());//false
-console.log(g());//false
+console.log(g());//false */
+
+/* let/const/class从语法上都不允许重复声明*/
+/* function sum(a) {
+    console.log(a);//报错
+    let a = 100;
+    console.log(a);
+}
+sum(200);
+ */
+
+/* 
+ EC(G) 
+   obj
+   a
+   fn -> 0x000 [[scope]]:EC(G)
+   变量提升  var a; function fn(obj){...};
+*/
+var obj = {
+  a: '包子',
+  b: '面条'
+};
+var a = 'name';
+function fn(obj) {
+  console.log(obj);
+  //把变量a存储的值作为属性名去操作
+  obj[a] = '珠峰';
+  obj.b = '馒头';
+  obj = {};
+  obj[1] = 1;
+  console.log(obj);
+}
+fn(obj);
+console.log(obj);

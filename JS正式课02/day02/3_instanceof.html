@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Fn(x, y) {
+            let sum = 10;
+            this.total = x + y;
+            this.say = function () {
+                console.log(`我计算的和是:${this.total}`);
+            };
+        }
+        let f1 = new Fn(10, 20);
+        let f2 = new Fn;
+        console.log(f1 instanceof Fn); //true  f1本身就是new Fn出来的
+        console.log(f1 instanceof Array); //false  数组才是Array类的实例
+
+
+        // ---instanceof可以临时用来检测数据类型，用来细分对象
+        let obj = {},
+            reg = /\d+/,
+            arr = [];
+        console.log(reg instanceof RegExp); //true 说明reg是一个正则
+        console.log(arr instanceof Array); //true
+        console.log(obj instanceof Array); //false
+
+        // typeof 不能细分对象
+        console.log(typeof obj); //“object”
+        console.log(typeof reg); //“object”
+        console.log(typeof arr); //“object”
+
+
+        // 实例是啥类型的？对象
+        // 但是这样说不严谨，虽然大部分实例都是对象类型的值，但是“原始值类型”的值，从本质上也是自己所属类的实例，例如：1 是 Number类 的实例，那么1也是一个实例，但是她属于原始值中的“number”类型
+        console.log(typeof f1); //=>“object”
+        console.log(typeof 1); //=>“number”
+
+        // 类(构造函数)是啥类型的？函数
+        console.log(typeof Number); //=>“function”
+        console.log(typeof Object); //=>“function”
+        console.log(typeof Fn); //=>“function”
+    </script>
+</body>
+
+</html>

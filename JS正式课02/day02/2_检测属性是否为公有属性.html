@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //有瑕疵：如果该属性即时公有属性也是私有属性会有问题
+        const hasPubProperty = function hasPubProperty(obj, attr){
+              return (attr in obj) && !obj.hasOwnProperty(attr);
+        };
+        console.log(hasPubProperty(f1, 'hasOwnProperty'));
+    </script>
+</body>
+</html>

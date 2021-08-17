@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            fn1: function(){},
+            //和上面的f1函数类似，但是不具备prototype属性
+            fn2(){}
+        }
+
+        console.dir(obj.fn1);
+        console.dir(obj.fn2);
+    </script>
+</body>
+</html>

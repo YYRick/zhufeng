@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Fn(x, y) {
+            let sum = 10;
+            this.total = x + y;
+            this.say = function () {
+                console.log(`我计算的和是:${this.total}`);
+            };
+        }
+        let f1 = new Fn(10, 20);
+        let f2 = new Fn;
+        console.log('say' in f1); //true  “say”是f1对象的一个属性「不能论是公有还是私有」
+        // 对象.hasOwnProperty(属性)：检测当前属性是否是对象的“私有”属性
+        console.log(f1.hasOwnProperty('say')); //true
+    </script>
+</body>
+
+</html>

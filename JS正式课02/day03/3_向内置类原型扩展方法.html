@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Array.prototype.quick = function quick() {
+            // this -> arr  用this代替之前的传参 「特殊:不能这样执行 Array.prototype.quick()」
+            if (this.length <= 1) return this;
+            let middleIndex = Math.round(this.length / 2),
+                middleValue = this.splice(middleIndex, 1)[0],
+                arrLeft = [],
+                arrRight = [];
+            for (let i = 0; i < this.length; i++) {
+                let item = this[i];
+                item > middleValue ? arrRight.push(item) : arrLeft.push(item);
+            }
+            return arrLeft.quick().concat(middleValue, arrRight.quick());
+        };
+        let arr = [12, 16, 8, 1, 24, 15];
+        arr = arr.quick();
+        console.log(arr);
+    </script>
+</body>
+
+</html>

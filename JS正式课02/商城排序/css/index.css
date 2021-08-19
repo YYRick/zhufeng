@@ -19,3 +19,7 @@
     margin: 0 5px 10px 5px;
     flex: 0 0 218px;
 }
+
+.card-deck .card .card-text{
+    margin-bottom: 10px;
+}

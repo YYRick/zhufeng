@@ -13,17 +13,19 @@
     <div class="container">
         <!-- Nav导航 -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">商城排序</a>
+            <a class="navbar-brand" href="javascript:;">商城排序</a>
             <div class="collapse navbar-collapse">
               <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">上架时间</a>
+                <!-- active -->
+                <!-- data-pai：记录的是每个按钮应该按照哪种方式进行排序 -->
+                <li class="nav-item" data-pai="data-time">
+                  <a class="nav-link" href="javascript:;">上架时间</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">价格</a>
+                <li class="nav-item" data-pai="data-price">
+                  <a class="nav-link" href="javascript:;">价格</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">热度</a>
+                <li class="nav-item" data-pai="data-hot"> 
+                  <a class="nav-link" href="javascript:;">热度</a>
                 </li>
               </ul>
             </div>

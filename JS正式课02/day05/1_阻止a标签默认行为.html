@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="商城排序/css/reset.min.css">
+    <style>
+        #box{
+            margin: 3000px 0;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- A标签第一个作用：打开超链接 -->
+    <a href="http://www.zhufengpeixun.cn">珠峰培训</a>
+    <!-- 在新窗口打开页面 -->
+    <a href="http://www.zhufengpeixun.cn" target="_blank">珠峰培训</a>
+
+    <!-- A标签第二个作用：锚点定位 -->
+    <a href="#box">哈哈</a>
+    <div id="box">呵呵</div>
+
+    <!-- A标签第三个作用：普通按钮  文字按钮用A标签来做-->
+    <!-- href="javascript:;" 阻止A标签的默认行为 -->
+    <a href="javascript:;">我就是一个按钮</a>
+    <script>
+		// JS阻止默认行为
+		link.onclick = function (ev) {
+			// ev.preventDefault();
+			// 或
+			// return false;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <input  id="userName"></input>
+    <!-- <script src="alert.js"></script> -->
+    <script>
+        //想操作谁就先获取谁
+        let box = document.getElementById('box');
+        // 使用id获取元素
+        box.innerHTML = "珠峰";  //=>覆盖原始的所有内容
+        box.innerText = "培训";
+        box.innerHTML += "珠峰"; //=>在原始内容上继续增加
+        box.innerText += "培训";
+        box.innerHTML = "<strong>我是重点内容</strong>";
+        box.innerText = "<strong>我是重点内容</strong>"
+        let userName = document.getElementById('userName');
+        userName.value = "我是在JS中插入的内容";
+    </script>
+</body>
+</html>

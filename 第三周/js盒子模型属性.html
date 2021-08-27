@@ -9,6 +9,12 @@
             padding: 0;
         }
         .box{
+            /* 
+             IE盒模型设置的宽高就是整个盒子的宽高
+             winth = content+2*padding(内边距)+2*border(边框)
+             contentwinth = 300-15*2-10*2 = 250
+             contentheight = 400 - 15*2-10*2 = 350
+            */
             box-sizing: border-box;
             margin: 20px auto;
             padding: 15px;
@@ -30,5 +36,16 @@
         五帝三皇神圣事，骗了无涯过客。有多少风流人物？
         盗跖庄屩流誉后，更陈王奋起挥黄钺。歌未竟，东方白。
     </div>
+
+    <script>
+        //想要操作谁，就先获取谁
+        let box = document.querySelector('.box');
+        console.log(box);
+        //获取可视区域的宽高 => content(winth/height) + 2*padding
+        let winw = box.clientWidth;
+        let winH = box.clientHeight;
+        console.log(winw);
+        console.log(winH);
+    </script>
 </body>
 </html>

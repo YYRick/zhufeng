@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js盒子模型 | 居中处理</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* html,body{
+            height: 100%;
+        } */
+        .box{
+            box-sizing: border-box;
+            padding: 15px;
+            width: 300px;
+            height: 400px;
+            border: 10px solid lightblue;
+            background: lightcyan;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        /* 居中：定位实现
+           缺陷：需要知道宽高的
+        */
+        /* .box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -150px;
+            margin-top: -200px;
+        } */
+         
+        /* 基于CSS3变形属性中的位移
+           在不知道宽高的情况下也能实现效果
+        */
+        /* .box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        } */
+
+        /* 兼容性不好 */
+        /* .box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        } */
+
+
+        /* flex布局实现 */
+        /* body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        人猿相揖别。只几个石头磨过，小儿时节。
+        铜铁炉中翻火焰，为问何时猜得？不过几千寒热。
+        人世难逢开口笑，上疆场彼此弯弓月。流遍了，郊原血。
+        一篇读罢头飞雪，但记得斑斑点点，几行陈迹。
+        五帝三皇神圣事，骗了无涯过客。有多少风流人物？
+        盗跖庄屩流誉后，更陈王奋起挥黄钺。歌未竟，东方白。
+    </div>
+
+    <script>
+        //js实现居中：(一屏幕的宽度-盒子的宽度)/2 = left
+        let winW = document.documentElement.clientWidth,
+            winH = document.documentElement.clientHeight,
+            box = document.getElementById('box');
+        box.style.position = 'absolute';
+        box.style.left = (winW - 300) / 2 + 'px';
+        box.style.top = (winH - 400) / 2 + 'px';
+    </script>
+</body>
+</html>

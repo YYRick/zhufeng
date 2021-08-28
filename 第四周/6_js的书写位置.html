@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<script>
+		/* 
+          在结构加载之前获取元素肯定获取不到，
+          所以我们一般把JS放到BODY末尾
+         （就是为了等待结构加载完再去获取元素）
+          */
+		let tabBox = document.getElementById('tabBox');
+		console.log(tabBox); //=>null
+	</script>
+</head>
+<body></body>
+</html>

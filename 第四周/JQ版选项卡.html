@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        .tabBox{
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 500px;
+        }
+
+        .navBox{
+            display: flex;
+            position: relative;
+            top: 1px;
+        }
+
+        .navBox li{
+            box-sizing: border-box;
+            margin-right: 10px;
+            padding: 0 10px;
+            line-height: 35px;
+            border: 1px solid #999;
+        }
+
+        .navBox li.active{
+            border-bottom-color:#fff;
+        }
+        
+        .tabBox>div{
+            display: none;
+            box-sizing: border-box;
+            padding: 10px;
+            height: 150px;
+            border: 1px solid #999;
+        }
+
+
+        .tabBox>div.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabBox">
+        <ul class="navBox">
+            <li class="active">编程</li>
+            <li>读书</li>
+            <li>运动</li>
+        </ul>
+        <div class="active">编程使我快乐</div>
+        <div>编程使我快乐</div>
+        <div>读书使我幸福</div>
+        <div>运动使我健康</div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        /* 
+          $([function])：等待页面中所有的DOM结构加载完成才会执行这个方法
+          上面的是一个简写，完整写法如下：
+          => $(document).ready([function])
+
+          window.onload = function(){}：等待页面中所有的资源
+          (DOM结构、内容、其它的富媒体资源等)都加载完成才会执行函数
+        */
+        $(function(){
+            /* 
+              选项卡正常思路：给所有的li都绑定点击事件，
+              当点击某一个li的时候，让其有选中的样式。
+              而其余的li都移除选中样式，同时对应索引的div有选中样式，
+              其余的div移除选中样式即可，这样就可以实现选项卡切换效果
+            */
+           let $tabBox = $('.tabBox'),
+               //find：获取后代元素
+               $navList = $tabBox.find('.navBox>li'),
+               //children：获取子元素集合
+               $divList = $tabBox.children('div');
+           
+           //=> 基于JQ中的each遍历集合中的每一项
+           /* $navList.each(function(index, $item){
+                 //注意：jq中的each方法和js中的forEach方法的参数顺序是反着的
+                 //index：当前循环这一项的索引
+                 //$item：当前循环的这一项
+                 //并且this===$item：当前方法中的this也是循环的这一项
+              $item.on('click', function(){
+                  //基于JQ循环遍历每一项，并绑定点击事件
+
+              })
+           }); */
+           /* $navList.each((index, $item) =>{
+                //注意：如果使用es6中的箭头函数，当前函数中的$item就不在是this了
+                //因为箭头函数中没有this，当前的this-> $navList,所以建议使用$item而不是this来处理
+           }); */
+              
+              /* 
+                其实我们不需要向上面那样写的很麻烦，
+                直接这么写就可以实现上述功能
+                这是利用了JQ的一个特性-> 内置循环处理机制(基于一个JQ集合去操作某个方法，
+                我们并不需要循环每一项进行单独操作，JQ内部已经帮我们循环处理了，举一个例子
+                例如：$navList.css('color', '#000')集合中有100项，JQ会把100项都设置成这个样式，无需自己循环处理)
+              */
+              $navList.on('click', function(){
+                  //=>this：当前点击操作的元素 -> 注意：如果this想要使用JQ中的方法，就需要包装成JQ对象：$(this)
+              })
+        });
+    </script>
+</body>
+</html>

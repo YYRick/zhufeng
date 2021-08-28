@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery专题</title>
+</head>
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        //DOM的增删改
+        let str = `<div id="box" class="box">
+                 哈哈哈
+            </div>`;
+        $('body').append(str);
+        let $box = $('.box');
+        /* 
+          $box.insertBefore('.list>li:eq(2)')
+          是将$box放在第三个无序列表的前面
+          注意：这两个元素都必须已经存在页面中
+        */
+        $box.insertBefore('.list>li:eq(2)');
+    </script>
+</body>
+</html>

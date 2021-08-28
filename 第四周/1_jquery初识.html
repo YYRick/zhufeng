@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery专题</title>
+</head>
+<body>
+    <ul class="Li">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <!-- <script>
+        /* 原生JS实现DOM的增删改 */
+        let  divBox = document.createElement('div');
+        divBox.id = 'box';
+        divBox.className = 'box';
+        divBox.innerText = '哈哈哈';
+        document.body.appendChild(divBox);
+    </script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        /* JQ实现DOM的增删改 */
+        let str = `<div id="box" class='box'>
+                人猿相揖别。
+                只几个石头磨过，
+                小儿时节。
+                铜铁炉中翻火焰，
+                为问何时猜得？
+                不过几千寒热。
+                人世难逢开口笑，
+                上疆场彼此弯弓月。
+                流遍了，
+                郊原血。
+                一篇读罢头飞雪，
+                但记得斑斑点点，
+                几行陈迹。
+                五帝三皇神圣事，
+                骗了无涯过客。
+                有多少风流人物？
+                盗跖庄蹻流誉后，
+                更陈王奋起挥黄钺。
+                歌未竟，
+                东方白。
+            </div>
+            `;
+        //获取body元素，并且把str添加到body的末尾
+        $('body').append(str);
+        /* $('body').html(str); *///=>等价于innerHTML
+        
+        //放在Li的前面
+        /* $('#box').insertBefore('.Li'); */
+        //放在Li的后面
+        $('#box').insertAfter('.li');
+    </script>
+</body>
+</html>

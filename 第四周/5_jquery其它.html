@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery专题 | 操作CSS样式(盒子模型)</title>
+</head>
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let str = `<div id="box" class="box">
+                 哈哈哈
+            </div>`;
+        $('body').append(str);
+        let $box = $('.box');
+        //事件处理
+        $box.on('click', function(){
+            console.log('嘿嘿嘿');
+        });
+    </script>
+</body>
+</html>

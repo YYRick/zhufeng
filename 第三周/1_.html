@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    ~function () {
+	/* 
+	 * queryURLParams：获取URL地址问号和面的参数信息（可能也包含HASH值）
+	 *   @params
+	 *   @return
+	 *     [object]把所有问号参数信息以键值对的方式存储起来并且返回
+	 * by yuanzhililan on 2019/08/13
+	 */
+	function queryURLParams() {
+		let obj = {};
+		this.replace(/([^?=&#]+)=([^?=&#]+)/g, (...[, $1, $2]) => obj[$1] = $2);
+		/* this.replace(/#([^?=&#]+)/g, (...[, $1]) => obj['HASH'] = $1); */
+		return obj;
+	}
+
+	/* 扩展到内置类String.prototype上 */
+	["queryURLParams"].forEach(item => {
+		String.prototype[item] = eval(item);
+	});
+}();
+
+let url = "http://www.yuanzhililan.cn/?lx=1&from=wx#video";
+console.log(url.queryURLParams());
+//=>{lx:1,from:'wx',HASH:'video'}
+    </script>
+</body>
+</html>

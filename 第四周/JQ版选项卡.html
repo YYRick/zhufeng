@@ -59,11 +59,21 @@
             <li>运动</li>
         </ul>
         <div class="active">编程使我快乐</div>
-        <div>编程使我快乐</div>
         <div>读书使我幸福</div>
         <div>运动使我健康</div>
     </div>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script>
+        /* 更简便的JQ实现选项卡 */
+        $('.tabBox>.navBox>li').click(function(){
+            let index = $(this).index();
+            $(this).addClass('active')
+                   .siblings().removeClass('active')
+                   .parent()
+                   .nextAll('div').eq(index).addClass('active')
+                   .siblings().removeClass('active');
+        })
+    </script> -->
     <script>
         /* 
           $([function])：等待页面中所有的DOM结构加载完成才会执行这个方法
@@ -111,6 +121,17 @@
               */
               $navList.on('click', function(){
                   //=>this：当前点击操作的元素 -> 注意：如果this想要使用JQ中的方法，就需要包装成JQ对象：$(this)
+                  
+                  //=>获取当前点击的索引
+                  let index = $(this).index();
+                  
+                  //=>JQ的第二个特性：链式写法
+                  //=>给当前点击的li添加active类名，同时清除其余兄弟的active类名(链式写法+内置循环处理机制)
+                  $(this).addClass('active').siblings().removeClass('active');
+                  
+                  //=>根据点击li的索引，在div集合中找到对应的那一项，
+                  //然后让这一项选中，其余兄弟都移除选中状态即可
+                  $divList.eq(index).addClass('active').siblings().removeClass('active');
               })
         });
     </script>

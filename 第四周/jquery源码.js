@@ -180,14 +180,9 @@
             this[0] = selector;
             this.length = 1;
             return this;
-
-            // HANDLE: $(function)
-            // Shortcut for document ready
         } else if (isFunction(selector)) {
             return root.ready !== undefined ?
                 root.ready(selector) :
-
-                // Execute immediately if ready is not present
                 selector(jQuery);
         }
 
@@ -196,12 +191,133 @@
 
     init.prototype = jQuery.fn;
 
+
+    var _jQuery = window.jQuery,
+        _$ = window.$;
+    /* 
+      noConflict：转移$的使用权，因为有可能其它类库也使用了$,
+      为了避免冲突，转移$的使用权
+    */
+	jQuery.noConflict = function (deep) {
+        //=>转移$的使用去权
+		if (window.$ === jQuery) {
+			window.$ = _$;
+		}
+
+		if (deep && window.jQuery === jQuery) {
+            //=>转移jQuery的使用权
+			window.jQuery = _jQuery;
+		}
+
+		return jQuery;
+	};
+
+
+    jQuery.extend = jQuery.fn.extend = function () {
+		var options, name, src, copy, copyIsArray, clone,
+			target = arguments[0] || {},
+			i = 1,
+			length = arguments.length,
+			deep = false;
+
+		/* 
+          第一项可传可不传，第二项必须要传，所做的处理
+        */
+		if (typeof target === "boolean") {
+			deep = target;
+			target = arguments[i] || {};
+			i++;
+		}
+
+		// Handle case when target is a string or something (possible in deep copy)
+		if (typeof target !== "object" && !isFunction(target)) {
+			target = {};
+		}
+
+		// Extend jQuery itself if only one argument is passed
+		if (i === length) {
+			target = this;
+			i--;
+		}
+
+		for (; i < length; i++) {
+
+			// Only deal with non-null/undefined values
+			if ((options = arguments[i]) != null) {
+
+				// Extend the base object
+				for (name in options) {
+					copy = options[name];
+
+					// Prevent Object.prototype pollution
+					// Prevent never-ending loop
+					if (name === "__proto__" || target === copy) {
+						continue;
+					}
+
+					// Recurse if we're merging plain objects or arrays
+					if (deep && copy && (jQuery.isPlainObject(copy) ||
+							(copyIsArray = Array.isArray(copy)))) {
+						src = target[name];
+
+						// Ensure proper type for the source value
+						if (copyIsArray && !Array.isArray(src)) {
+							clone = [];
+						} else if (!copyIsArray && !jQuery.isPlainObject(src)) {
+							clone = {};
+						} else {
+							clone = src;
+						}
+						copyIsArray = false;
+
+						// Never move original objects, clone them
+						target[name] = jQuery.extend(deep, clone, copy);
+
+						// Don't bring in undefined values
+					} else if (copy !== undefined) {
+						target[name] = copy;
+					}
+				}
+			}
+		}
+
+		// Return the modified object
+		return target;
+	};
+
     if (typeof noGlobal === "undefined") {
         //=>把jQuery赋值给window下的jQuery和$
 		window.jQuery = window.$ = jQuery;
 	}
 
 });
+
+/* 
+  extend：向jQuery中继续扩展方法
+  extend的使用方式
+   + $.extend(); //=>扩展到jQuery对象上，一般是为了完善类库，提供更多的工具方法
+   + $.fn.extend();//=>扩展到jQuery原型上，一般是为了写jQuery插件，让jQuery的实例来调用
+   + $().extend();//=>这种不常用
+*/
+
+//=>向jQuery对象上扩展方法
+$.extend({
+    queryURLParms: function(url){
+       //.......
+    }
+});
+
+//=>调用扩展方法
+$.queryURLParms('http://www.baidu.com');
+
+/* 
+  noConflict：jQuery对象上的方法
+  jQuery.noConflict或者$.noConflict
+*/
+let j = jQuery.noConflict();//=> j === jQuery
+//=>此时既可以使用jQuery()调用方法也可以使用j()调用方法
+let A = jQuery.noConflict(true);
+//=>此时连jQuery也被转移了使用权，还可以通过A()调用方法;
 
 //=> 在外面可以直接调用了
 $();
@@ -226,5 +342,7 @@ jQuery();
        把jQuery对象转化为原生JS对象：直接基于索引获取即可，例如：$A[0]，
        真实项目中建议大家使用jQuery自带的get方法实现，因为它更加完善，可以支持负数索引：$A.get(0)
        eq方法也是根据索引获取集合中的某一项(也支持负数索引)，只不过返回的结果不是原生JS对象，依然是jQuery的一个实例
+     + [函数]
+       $(function(){}) 等待页面中的DOM结构加载完成后再执行函数，等价于$(document).ready(function(){})
 */
 $('.box')

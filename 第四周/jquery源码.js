@@ -23,6 +23,15 @@
     var version = "3.6.0",
 
     jQuery = function (selector, context) {
+        /* 
+          为什么不直接new一个jQuery实例，而是通过init，
+          先把new出来的实例赋给init，再转给jQuery
+
+          就像是老大jQuery想要一个儿子，但是他自己不想生，
+          而是就委托init替他生，然后再把这个孩子过继给jQuery他自己
+
+          避免new(jQuery不想new)，直接$()就可以创建一个jQuery的实例
+        */
         return new jQuery.fn.init(selector, context);
     };
     
@@ -53,11 +62,169 @@
 			return num < 0 ? this[num + this.length] : this[num];
 		},
 
-
-        each: function (callback) {
-			return jQuery.each(this, callback);
+        eq: function (i) {
+			var len = this.length,
+				j = +i + (i < 0 ? len : 0);
+			return this.pushStack(j >= 0 && j < len ? [this[j]] : []);
 		},
-
     };
 
+
+    /* 
+      jQuery给我们提供的方法放到了两个位置上面
+        1.原型上 jQuery.prototype = {...}
+          //=>创建jQuery实例才能调用这上面的方法
+          //=>$()就是jQuery实例
+          $().get();
+        2.对象上 jQuery.ajax = ...
+          //=>直接调用
+          $.ajax();
+    */
+
+    //=>jQuery也是一个普通对象
+    jQuery.ajax = function (url, options){
+       
+    };
+
+    init = jQuery.fn.init = function (selector, context, root) {
+        var match, elem;
+        
+        /* 
+          如果我什么都不传，那就是返回当前实例
+          所以$() => 就是当前jQuery的一个实例
+        */
+        if (!selector) {
+            return this;
+        }
+
+        /* 
+          我们并没有传入root的实参，所以默认是rootjQuery
+          => rootjQuery = jQuery(document);
+          代表整个文档
+        */
+        root = root || rootjQuery;
+
+        /* 
+         如果你传入的selector选择器是一个字符串，
+         就做下面这些事情：通过选择器获取我们所需要的元素  
+        */
+        if (typeof selector === "string") {
+            if (selector[0] === "<" &&
+                selector[selector.length - 1] === ">" &&
+                selector.length >= 3) {
+
+                // Assume that strings that start and end with <> are HTML and skip the regex check
+                match = [null, selector, null];
+
+            } else {
+                match = rquickExpr.exec(selector);
+            }
+
+            // Match html or make sure no context is specified for #id
+            if (match && (match[1] || !context)) {
+
+                // HANDLE: $(html) -> $(array)
+                if (match[1]) {
+                    context = context instanceof jQuery ? context[0] : context;
+
+                    // Option to run scripts is true for back-compat
+                    // Intentionally let the error be thrown if parseHTML is not present
+                    jQuery.merge(this, jQuery.parseHTML(
+                        match[1],
+                        context && context.nodeType ? context.ownerDocument || context : document,
+                        true
+                    ));
+
+                    // HANDLE: $(html, props)
+                    if (rsingleTag.test(match[1]) && jQuery.isPlainObject(context)) {
+                        for (match in context) {
+
+                            // Properties of context are called as methods if possible
+                            if (isFunction(this[match])) {
+                                this[match](context[match]);
+
+                                // ...and otherwise set as attributes
+                            } else {
+                                this.attr(match, context[match]);
+                            }
+                        }
+                    }
+
+                    return this;
+
+                    // HANDLE: $(#id)
+                } else {
+                    elem = document.getElementById(match[2]);
+
+                    if (elem) {
+
+                        // Inject the element directly into the jQuery object
+                        this[0] = elem;
+                        this.length = 1;
+                    }
+                    return this;
+                }
+
+                // HANDLE: $(expr, $(...))
+            } else if (!context || context.jquery) {
+                return (context || root).find(selector);
+
+                // HANDLE: $(expr, context)
+                // (which is just equivalent to: $(context).find(expr)
+            } else {
+                return this.constructor(context).find(selector);
+            }
+
+            // HANDLE: $(DOMElement)
+        } else if (selector.nodeType) {//=> 如果传入是个元素节点，则做下面这些事情
+            this[0] = selector;
+            this.length = 1;
+            return this;
+
+            // HANDLE: $(function)
+            // Shortcut for document ready
+        } else if (isFunction(selector)) {
+            return root.ready !== undefined ?
+                root.ready(selector) :
+
+                // Execute immediately if ready is not present
+                selector(jQuery);
+        }
+
+        return jQuery.makeArray(selector, this);
+    };
+
+    init.prototype = jQuery.fn;
+
+    if (typeof noGlobal === "undefined") {
+        //=>把jQuery赋值给window下的jQuery和$
+		window.jQuery = window.$ = jQuery;
+	}
+
 });
+
+//=> 在外面可以直接调用了
+$();
+jQuery();
+
+//=>实际上调用的是
+/* 
+  jQuery = function (selector, context) {
+        return new jQuery.fn.init(selector, context);
+    };
+*/
+//=> 基于jQuery选择器创建出来的是jQuery类的一个实例
+//=> 它就可以调用jQuery原型上的方法
+/* 
+   1.创建出来的jQuery实例是一个类数组(jQuery对象)，这个类数组是基于makeArray创建出来的
+   2.selector 支持三种数据格式
+     + [string]
+       - 选择器 $('.box')
+       - 创建元素$('<div>...</div>')
+     + [元素对象：JS原生对象]
+       把原生JS对象转化为jQuery对象(只有转成jQuery对象才能调用jQuery中的方法)
+       把jQuery对象转化为原生JS对象：直接基于索引获取即可，例如：$A[0]，
+       真实项目中建议大家使用jQuery自带的get方法实现，因为它更加完善，可以支持负数索引：$A.get(0)
+       eq方法也是根据索引获取集合中的某一项(也支持负数索引)，只不过返回的结果不是原生JS对象，依然是jQuery的一个实例
+*/
+$('.box')

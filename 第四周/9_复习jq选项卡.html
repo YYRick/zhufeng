@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        .tabBox{
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 500px;
+        }
+
+        .navBox{
+            display: flex;
+            position: relative;
+            top: 1px;
+        }
+
+        .navBox li{
+            box-sizing: border-box;
+            margin-right: 10px;
+            padding: 0 10px;
+            line-height: 35px;
+            border: 1px solid #999;
+        }
+
+        .navBox li.active{
+            border-bottom-color: #fff;
+        }
+
+        .tabBox>div{
+            display: none;
+            box-sizing: border-box;
+            padding: 10px;
+            height: 150px;
+            border: 1px solid #999;
+        }
+
+        .tabBox>div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabBox">
+        <ul class="navBox">
+            <li class="active">编程</li>
+            <li>读书</li>
+            <li>运动</li>
+        </ul>
+        <div class="active">编程使我快乐</div>
+        <div>读书使我幸福</div>
+        <div>运动使我健康</div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $('.tabBox>.navBox>li').click(function(){
+            let index = $(this).index;
+            $(this).addClass('active')
+                   .siblings().removeClass('active')
+                   .parent()
+                   .nextAll('div').eq(index).addClass('active')
+                   .siblings().removeClass('active');
+        })
+    </script>
+</body>
+</html>

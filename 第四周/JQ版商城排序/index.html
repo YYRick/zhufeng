@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训 | JQ版商城排序</title>
+    <!-- import css -->
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- BT中建议所有内容都存放在CONTAINER容器中 -->
+    <div class="container">
+        <!-- Nav导航 -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="javascript:;">商城排序</a>
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                <!--设置自定义属性pai：记录的是每个按钮应该按照哪种方式进行排序 -->
+                <li class="nav-item" pai="time">
+                  <a class="nav-link" href="javascript:;">上架时间</a>
+                </li>
+                <li class="nav-item" pai="price">
+                  <a class="nav-link" href="javascript:;">价格</a>
+                </li>
+                <li class="nav-item" pai="hot"> 
+                  <a class="nav-link" href="javascript:;">热度</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <!-- card-list 商品列表区 -->
+        <div class="card-deck">
+        </div>
+    </div>
+    <!-- import JS -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

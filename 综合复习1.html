@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训 | 正式课前三周</title>
+</head>
+<body>
+    <!-- js正式课第一周 -->
+    <script>
+        console.log(a);//=>undefined
+        var a = 12;
+        function fn(){
+            console.log(a);//=>undefined
+            a = 13;
+        }
+        fn();
+        console.log(a);//=>12
+        console.log(window.a);//=>12
+    </script>
+</body>
+</html>

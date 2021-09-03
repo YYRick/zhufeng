@@ -20,6 +20,7 @@ function Fn(){
 }
 let f = new Fn();
  */
+var val = 1;
 
 var json ={
 

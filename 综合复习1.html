@@ -303,32 +303,176 @@
         test(5);
     </script> -->
 
-    <script>
-        var a=1;
+    <!-- <script>
+        /* 
+          VO
+            a -> 1
+            obj  0x001 -> {"name":"tom"}
+            fn   0x002
+          GO
+            obj2 -> 0x001
+        */
+        var a = 1;
     
-        var obj ={
+        var obj = {
             
-        "name":"tom"
+          "name":"tom"
             
         }
             
         function fn(){
+            /* 
+              a2 -> 1
+            */
             
-        var a2 = a;
-            
-        obj2 = obj;
-            
-        a2 =a;
-            
-        obj2.name ="jack";
+            var a2 = a;
+                
+            obj2 = obj;
+                
+            a2 = a;
+                
+            obj2.name ="jack";
             
         }
             
         fn();
         
-    console.log(a);
+        console.log(a);//=>1
+            
+        console.log(obj);//=>{name ="jack"}
+    </script> -->
+
+    <!-- <script>
+        var a = 1;
+    
+        function fn(a){
+            
+            console.log(a)
+            
+            var a = 2;
+            
+            function a(){}
+            
+        }
+            
+        fn(a)//=>函数a
+    </script> -->
+
+   <!--  <script>
+        var a=0,
+            b=0;
+            
+        function A(a){
+            
+            A=function(b){
+            
+                alert(a+b++);
+            
+            };
+            
+            alert(a++);
+            
+        }
+            
+        A(1);
+            
+        A(2);
+    </script> -->
+    <!-- <script>
+
+        var fullName='language';
         
-    console.log(obj);
-    </script>
+        var obj={
+        
+            fullName:'javascript',
+            
+            prop:{
+            
+                getFullName:function(){
+                    return this.fullName;
+            
+                }
+            
+            }
+        
+        };
+        
+        console.log(obj.prop.getFullName());
+        
+        var test=obj.prop.getFullName;
+        
+        console.log(test());
+    </script> -->
+
+
+    <!-- <script>
+        var name='window';
+    
+        var Tom={
+        
+            name:"Tom",
+            
+            show:function(){
+            
+                console.log(this.name);
+            
+            },
+            
+            wait:function(){
+                var fun=this.show;
+            
+                fun();
+            
+            }
+            
+        };
+        
+        Tom.wait();
+    </script> -->
+
+
+    <!-- <script>
+        (function(){
+    
+            var val =1;
+        
+            var json ={
+        
+                val:10,
+        
+                dbl:function(){
+        
+                    val*=2;
+        
+                }
+        
+            };
+        
+            json.dbl();
+        
+            alert(json.val+val);
+        
+        })();
+ 
+    </script> -->
+
+    <!-- <script>
+        var foo = {
+    
+            bar: function () {
+        
+               console.log(this);
+        
+            }
+        
+        };
+        
+        foo.bar(); 
+        
+        (foo.bar)(); 
+   
+    </script> -->
 </body>
 </html>
+
+<script src="复习&提升/01_this基础.js"></script>

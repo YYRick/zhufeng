@@ -134,27 +134,46 @@
         document.querySelector('#box3');
     </script> -->
 
-    <script>
+    <!-- <script>
        isNaN(parseInt(new Date())) + Number([1]) + typeof undefined;//=>'2undefined'
 
        !(!"Number(undefined)");//=> true
 
        parseFloat("1.6px") + parseInt("1.2px") + typeof parseInt(null);//=> '2.6number'
 
-       Boolean(Number("")) + !isNaN(Number(null)) + Boolean("parseInt([])") + typeof !(null);
+       Boolean(Number("")) + !isNaN(Number(null)) + Boolean("parseInt([])") + typeof !(null); //=> '2boolean'
 
-       isNaN(Number(!!Number(parseInt("0.8"))));
+       isNaN(Number(!!Number(parseInt("0.8"))));//=> false
 
-       !typeof parseFloat("0");
+       !typeof parseFloat("0");//=> false
 
-       Number("");
+       Number("");//=> 0
 
-       16+{};
-       {}+16;
+       16+{};//=> "16[object Object]"
+       {}+16;//=> 16
 
        var n = 6;
+    
        console.log((n++) + n-- + 5 + --n +--n);
        console.log(n);
+    </script> -->
+
+
+    <!-- <script>
+        //=> 四、把下面的程序改写成为三元运算符，并算出结果
+        let a = 12;
+        if (a >= 0 && a <= 20) {
+        if (a % 2 === 0) {
+            a += 2;//相当于a=a+2;
+        }
+        } else {
+            a -= 2;//相当于a=a-2;
+        }
+        console.log(a);
+    </script> -->
+
+    <script>
+        
     </script>
 </body>
 </html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <!-- day02作业 -->
+    <!-- <script>
+        /* 
+          1.分别写出下列表达式输出的结果 （腾讯面试题）
+        */
+
+        var a = 'abc' + 123 + 456;//=> 'abc123456'
+        var b = '456' - '123';//=> 333
+        var c = 100 + true + 21.2 + null + undefined + "Tencent" + [] + null + 9 + false;//=> 'NaNTencentnull9false'
+        console.log(a,b,c);
+    </script>  -->
+
+    <!-- <script>
+        var str = 'abc123';
+        var num = parseInt(str);
+        if (num == NaN) {
+            alert(NaN);
+        } else if (num == 123) {
+            alert(123);
+        } else if (typeof num == 'number') {
+            alert('number');//=> 弹出'number'
+        } else {
+            alert('str');
+        }
+    </script> -->
+
+    <!-- <script>
+        //=> B/C/E
+        console.log("A",alert(1))
+        console.log("B",parseInt(1.3))              
+        console.log("C",1)  
+        console.log("D",isNaN(1))   
+        console.log("E",parseInt("1"))
+    </script> -->
+
+    <!-- <script>
+        //=> A/B
+        console.log("A.",alert(1))                
+        console.log("B.",typeof undefined)
+        console.log("C.",parseInt(undefined))      
+        console.log("D.",isNaN(undefined))
+    </script> -->
+
+    <!-- <script>
+        A.isNaN(null)  
+        B.isNaN(parseInt(null))  
+        C.Number(null)  
+        D.parseFloat(null)
+    </script> -->
+
+
+    <!-- <script>
+        parseInt("")//=> NaN
+        Number("")//=> 0
+        isNaN("")//=> false
+        parseInt(null)//=> NaN
+        Number(null)//=> 0
+        isNaN(null)//=> false
+        parseInt("12px")//=> 12
+        Number("12px")//=> NaN
+        isNaN("12px")//=> true
+    </script> -->
+
+    <!-- <script>
+        if (isNaN(NaN) == "") {
+            console.log("珠峰")
+        } else {
+            console.log("培训")//=>培训
+        }
+    </script> -->
+
+    <!-- day03作业 -->
+<!--     <script>
+        /* 
+          1、JS中的数据类型有哪些？
+             + 原始值类型
+               - number
+               - string
+               - null
+               - undefined
+               - boolean
+               - symbol
+               - bigint  
+             + 引用数据类型(对象类型)
+               - 标准普通对象 object
+               - 标准特殊对象 
+                 + Array
+                 + Date
+                 + RegExp
+                 + ...
+               - 非标准特殊对象
+                 + String/Number/Boolean包装类
+               - 可执行对象 function
+        */
+
+        /* 
+          2、typeof检测各种数据类型的结果都是什么？ 
+             
+        */
+
+        /* 
+          3、把十进制转换成二进制可以用什么方法？把235转换成二进制怎么写，结果是什么？
+
+          toString
+
+          (234).toString(2);
+
+        */
+
+        /* 
+         4、i++; i+=1; i=i+1; 这三个一样吗？如果不一样哪不一样？
+            不一样
+            i++只能进行数学运算
+            而i+=1和i=i+1还有字符串拼接的效果
+        */
+
+        /* 
+          5、console.log(0.1+0.2==0.3)输出什么？为什么？要怎么解决？
+          false  console.log((1+2)/10 == 0.3)
+        */
+    </script> -->
+    <!-- <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <script>
+        document.getElementById('box3');
+        document.querySelector('#box3');
+    </script> -->
+
+    <script>
+       isNaN(parseInt(new Date())) + Number([1]) + typeof undefined;//=>'2undefined'
+
+       !(!"Number(undefined)");//=> true
+
+       parseFloat("1.6px") + parseInt("1.2px") + typeof parseInt(null);//=> '2.6number'
+
+       Boolean(Number("")) + !isNaN(Number(null)) + Boolean("parseInt([])") + typeof !(null);
+
+       isNaN(Number(!!Number(parseInt("0.8"))));
+
+       !typeof parseFloat("0");
+
+       Number("");
+
+       16+{};
+       {}+16;
+
+       var n = 6;
+       console.log((n++) + n-- + 5 + --n +--n);
+       console.log(n);
+    </script>
+</body>
+</html>

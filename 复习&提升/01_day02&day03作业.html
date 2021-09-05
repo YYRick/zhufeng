@@ -173,7 +173,61 @@
     </script> -->
 
     <script>
-        
+        // score变量为成绩，请根据分数，输出相应等级
+        // 90分及以上“优秀”   80分及以上"中等"   70分及以上"及格"  70分以下"不及格"
+        var score = 56;
+        function result(score){
+            if(score >= 90){
+                console.log('优秀');
+            }else if(score >= 80){
+                console.log('中等');
+            }else if(score >= 70){
+                console.log('及格');
+            }else{
+                console.log('不及格'); 
+            }
+        }
+
+        result(score);
+
+        // 输出数字是偶数还是奇数 
+        // 偶数条件：能被2整除
+        var num;
+
+        function even(num){
+            if(num %2 === 0){
+                console.log(`${num}是偶数`);
+            }
+        }
+        num = 44;
+        even(num);
+
+
+
+        //一个加油站为了鼓励车主多加油，所以加的多有优惠。
+        //92 号汽油，每升 6 元；如果大于等于 20升，那么每升 5.9 元
+        //97 号汽油，每升 7 元；如果大于等于 30升，那么每升 6.95 元
+        //根据汽油编号和升数，计算并且输出应付价格
+        var i = 97;//汽油编号
+        var num = 33;//升数
+
+        function price(i, num){
+            if(i === 92){
+               if(num >= 20){
+                   console.log(`${num}升的${i}号汽油一共需要${5.9*num}`);
+               }else{
+                   console.log(`${num}升的${i}号汽油一共需要${6*num}`);
+               }
+            }else if(i === 97){
+               if(num >= 30){
+                   console.log(`${num}升的${i}号汽油一共需要${6.95*num}`);
+               }else{
+                   console.log(`${num}升的${i}号汽油一共需要${7*num}`);
+               }
+            }
+        }
+
+        price(i, num);
     </script>
 </body>
 </html>

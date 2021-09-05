@@ -5,7 +5,7 @@
     <title>珠峰培训 | 2021js笔试题</title>
 </head>
 <body>
-    <script>
+    <!-- <script>
         /* 
          一、基础知识问答 (12分)
             1、JS的组成部分（2分）
@@ -38,6 +38,113 @@
             5、常用浏览器的内核都有哪些？（常见面试题）（2分）
                 webkit/
         */
+    </script> -->
+
+    <!-- <script>
+        let num = parseFloat('width:100px');
+        if(num == 100){
+           alert(1);
+        }else if(num == NaN){
+           alert(2);
+        }else if(typeof num == 'number'){
+           alert(3);//=>弹出3
+        }else{
+           alert(4);
+        }
+    </script> -->
+
+    <!-- <script>
+        for(var i=0;i<10;i+=2){
+            if(i<=5){
+                i++;
+                continue;
+            }else{
+                i+=3;
+                break;
+            }
+            alert(i);
+        }
+    </script> -->
+
+
+    <!-- <script>
+        var result1 = 1+null+true+undefined+'Tencent'+false+[]+undefined+null;
+        var result2 = 9+6+{}+true+1+[];
+        console.log(result1);//=>'2NaNTencentfalseundefinednull'
+        console.log(result2);//=>'15[object Object]true+1'
+    </script> -->
+
+
+    <!-- <script>
+        /* A：3-'1px'?alert(2):alert(3);
+        B：3+'1px'?alert(4):alert(5); */
+
+        //改写if
+        if(3-'1px'){
+           alert(2)
+        }else{
+           alert(3) 
+        }
+
+        if(3+'1px'){
+           alert(4)
+        }else{
+           alert(5) 
+        }
+    </script> -->
+
+
+    <!-- <script>
+        /* let a = NaN;
+        let b = a;
+        b = 13;
+        console.log(a);//=> NaN */
+
+        /* let a = {n: 'n'};
+        let b = a;
+        b['n'] = 6;
+        console.log(a.n); //=> 6 */
+
+        let a = {n:'bili'};
+        let b = a;
+        b = {n:13};
+        console.log(a.n);//=>'bili'
+    </script> -->
+
+
+    <!-- <script>
+        let a = {
+            n: 10
+        };
+        let b = a;
+        b.m = b = {
+            n: +'6'
+        };
+        /* 
+         {
+             n: 10,
+             m: {
+                 n: 6
+             }
+         }
+        */
+        console.log(a);
+        /* 
+          {
+             n: 6
+          }
+        */
+        console.log(b);
+    </script> -->
+
+
+    <script>
+        let i = 1;
+        /* 
+         
+        */
+        console.log(1-(++i)+(i--)+1+(i++)-(--i)-1); 
+        console.log(i);
     </script>
 </body>
 </html>

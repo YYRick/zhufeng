@@ -19,7 +19,6 @@ function say(a, b){
 //给方法say添加一个方法，在他执行之前调用
 
 Function.prototype.before = function(callback){
-    let that = this;
     //...args：剩余运算符
     return (...args) => {
         callback();

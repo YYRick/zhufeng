@@ -1,6 +1,7 @@
 /* 
   CSS3中的变形属性：transform，改变元素的样式
   优势：开启了硬件加速，比传统的样式改变性能流畅一些
+  特点：基于transform变形的元素，相当于脱离了文档流，对其余元素的位置不会产生影响
   + scale：缩放(沿着Z轴)
   + translate(X,Y) 位移  translate3d(X,Y,Z)
   + rotate(N deg) 旋转N度   rotateX/rotateY
@@ -15,6 +16,7 @@
     height: 300px;
     /* transform: scale(.6) rotate(180deg) skew(45deg); */
     transform: translate(200px, 200px);
+    z-index: -1;/* 对transform是无效的 */
 }
 
 .box{

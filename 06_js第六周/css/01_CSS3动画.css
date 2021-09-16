@@ -1,0 +1,25 @@
+/* 
+  CSS3中的变形属性：transform，改变元素的样式
+  优势：开启了硬件加速，比传统的样式改变性能流畅一些
+  + scale：缩放(沿着Z轴)
+  + translate(X,Y) 位移  translate3d(X,Y,Z)
+  + rotate(N deg) 旋转N度   rotateX/rotateY
+  + skew(N deg) 倾斜N度     
+  + matrix 矩阵变形         matrix3d
+*/
+
+.meimei{
+    display: block;
+    margin: 20px;
+    width: 400px;
+    height: 300px;
+    /* transform: scale(.6) rotate(180deg) skew(45deg); */
+    transform: translate(200px, 200px);
+}
+
+.box{
+    margin: 10px;
+    width: 400px;
+    height: 300px;
+    background: lightblue;
+}

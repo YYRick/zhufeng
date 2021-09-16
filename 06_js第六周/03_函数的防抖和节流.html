@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训 | 函数的防抖和节流</title>
+    <!-- import css -->
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style>
+        /* 背景颜色渐变 */
+        html,
+        body{
+            height: 500%;
+            background: -webkit-linear-gradient(top left, lightblue, lightgreen, lightyellow, orange);
+        }
+    </style>
+</head>
+<body>
+    <!-- import js -->
+    <script src="node_modules/underscore/underscore.js"></script>
+    <script src="debounce.js"></script>
+    <script>
+        /* 浏览器有个最小反应时间 */
+        //window.onscroll非常敏感，多次执行耗性能
+        /* window.onscroll = function(){
+            console.log('ok');
+        }
+ */
+        /* 
+          函数的防抖(debounce)：不是在某个事件触发后就去执行函数，而是在指定的时间间隔内只执行一次，减少函数执行的次数
+        */
+        let count = 0;
+        function fn(){
+            console.log(++count);
+        }
+        
+        let lazyFn = debounce(fn, 100, true);
+        
+        window.onscroll = lazyFn;
+    </script>
+</body>
+</html>

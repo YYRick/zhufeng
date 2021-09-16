@@ -6,7 +6,28 @@
 </head>
 <body>
     <script>
-        
+        //=>浏览器中的定时器有两种
+        /* 
+          所有的定时器都是用于在规定等待时间内执行某个方法
+          设置定时器会有一个返回值，是个数字，代表是第几个定时器
+        */
+        let n = 0;
+
+        //setInterval：执行多次，每隔指定的时间就执行一次
+        let timeout = setInterval(() => {
+            console.log(++n);
+            if(n >= 5){
+                //清除定时器：clearTimeout(数字) /clearInterval(数字)：清除第几个定时器
+                //使用clearTimeout也可以清除setInterval定时器
+                clearTimeout(timeout);
+                timeout = null;
+            }
+        }, 1000);
+        let timeout2 = setTimeout(() => {
+        }, 1000);
+        let timeout3 = setInterval(() => {
+        }, 1000);
+        console.log(timeout, timeout2, timeout3);
     </script>
 </body>
 </html>

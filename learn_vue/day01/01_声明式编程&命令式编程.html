@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- 小胡子语法 -->
+        <h2>{{msg}}</h2>
+    </div>
+    <!--  命令式编程 例如原生JS操作DOM   -->
+    <!-- <script>
+      //需求：把msg数据绑定在页面#app中，一秒后，让数据更改，同时让视图也跟着更改
+      let msg = 'hello world~~';
+      setTimeout(()=>{
+          msg = '你好世界~~';
+          app.innerHTML = msg;
+      }, 1000);
+      let app = document.getElementById('app');
+      app.innerHTML = msg;
+    </script> -->
+    
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+    <script>
+        //model层
+        //msg其实就是数据层(data)中定义的数据
+        let msg = 'hello world~~';
+        setTimeout(()=>{
+            vm.msg = '你好世界~~';
+        }, 1000);
+        
+        //viewModel层
+        //=>每次创建一个vue实例，就相当于创建一个viewModel监听器：可以监听对应视图和数据的相互改变
+        let vm = new Vue({
+            //view层
+            //=>el: element 当前监听器监听的视图(基于querySelector获取)
+            el: '#app',
+            //=>data：当前监听器监听的数据(这些监听的数据会挂载到vm实例上面，也就是vm.msg=xxx来操作)
+            data:{
+                msg
+            }
+        });
+    </script>
+
+</body>
+
+</html>
